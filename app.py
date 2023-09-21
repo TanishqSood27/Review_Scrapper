@@ -34,10 +34,14 @@ def index():
 
             filename = searchString + ".csv"
             fw = open(filename, "w")
-            headers = "Product, Customer Name, Rating, Heading, Comment \n"
+            headers = "Price, Product, Customer Name, Rating, Heading, Comment \n"
             fw.write(headers)
             reviews = []
             for commentbox in commentboxes:
+                #try:
+                   # Price = prodRes.find_all('div', {"class": "_30jeq3 _16Jk6d"})[0].text
+               # except:
+                #    Price = "no price available"
                 try:
                     #name.encode(encoding='utf-8')
                     name = commentbox.div.div.find_all('p', {'class': '_2sc7ZR _2V5EHH'})[0].text
@@ -79,5 +83,8 @@ def index():
         return render_template('index.html')
 
 if __name__ == "__main__":
-    #app.run(host='127.0.0.1', port=8001, debug=True)
-	app.run(debug=True)
+    app.run(host='127.0.0.1', port=8001, debug=True)
+	#app.run(debug=True)
+
+
+
